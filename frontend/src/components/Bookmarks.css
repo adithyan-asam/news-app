@@ -1,0 +1,50 @@
+.bookmarks-page {
+    padding: 20px;
+}
+.bookmark-card {
+    border: 3px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+    transition: box-shadow 0.3s;
+}
+
+.bookmark-card:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.bookmark-card h2 {
+    margin: 0;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 10px; /* Smaller padding */
+    font-size: 25px; /* Smaller font size */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-left: auto; /* Push button to the right */
+    align-self: center; /* Center button vertically */
+    height: auto; /* Prevents stretching */
+    white-space: nowrap; /* Prevents button from expanding */
+}
+
+.delete-button:hover {
+    background-color: #001dd9;
+}
+
+.bookmark-card .delete-button:hover ~ .bookmark-card {
+    box-shadow: none;
+}
+

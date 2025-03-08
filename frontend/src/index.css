@@ -1,0 +1,29 @@
+:root {
+  /* Light Mode */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --card-bg: #f4f4f9;
+  --card-border: #e1e1e8;
+}
+
+body.dark-mode {
+  /* Dark Mode */
+  --bg-color: #1e1e2c;
+  --text-color: #f4f4f9;
+  --card-bg: #2a2a3d;
+  --card-border: #3a3a4d;
+}
+
+/* Apply Variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 15px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
