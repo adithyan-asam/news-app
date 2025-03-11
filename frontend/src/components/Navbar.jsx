@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
-import './Navbar.css'; // Import CSS for styling
+import './Navbar.css';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -24,7 +24,7 @@ const Navbar = () => {
             ) : (
                 <>
                     <Link to="/bookmarks" className="nav-link">Bookmarks</Link>
-                    <button onClick={logout} className="nav-link">Logout</button>
+                    <button onClick={logout} className="logout-btn">Logout</button>
                 </>
             )}
         </nav>

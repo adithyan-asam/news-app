@@ -1,29 +1,37 @@
-// src/components/Login.js
 import { useState, useContext } from 'react';
 import axios from 'axios';
 import AuthContext from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5000/api/users/login', { username, password })
-            .then(res => {
-                login(res.data.token);
-                navigate('/');
-            })
-            .catch((/*err*/) => alert('Login failed'));
+        setLoading(true);
+        setError('');
+        try {
+            const res = await axios.post('http://localhost:5000/api/users/login', { username, password });
+            login(res.data.token);
+            navigate('/');
+        } catch {
+            setError('Login failed. Please check your credentials.');
+        }
+        setLoading(false);
     };
 
     return (
         <div className="auth-container">
             <h2>Login</h2>
+            {error && <p className="error">{error}</p>}
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 
@@ -32,14 +40,19 @@ const Login = () => {
                     onChange={(e) => setUsername(e.target.value)} 
                     required 
                 />
-                <input 
-                    type="password" 
-                    placeholder="Password" 
-                    value={password} 
-                    onChange={(e) => setPassword(e.target.value)} 
-                    required 
-                />
-                <button type="submit">Login</button>
+                <div className="input-group">
+                    <input 
+                        type={showPassword ? "text" : "password"} 
+                        placeholder="Password" 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        required 
+                    />
+                    <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </span>
+                </div>
+                <button type="submit" disabled={loading}>{loading ? 'Logging in...' : 'Login'}</button>
             </form>
         </div>
     );
