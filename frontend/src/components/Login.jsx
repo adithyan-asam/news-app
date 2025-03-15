@@ -4,6 +4,7 @@ import AuthContext from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -54,6 +55,11 @@ const Login = () => {
                 </div>
                 <button type="submit" disabled={loading}>{loading ? 'Logging in...' : 'Login'}</button>
             </form>
+            <div className='auth-signup'>
+                <p>Don&apos;t have an account? 
+                    <Link to="/signup" className="signup-link">Sign Up</Link>
+                </p>
+            </div>
         </div>
     );
 };

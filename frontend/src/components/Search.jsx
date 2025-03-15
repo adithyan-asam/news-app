@@ -60,7 +60,7 @@ const Search = () => {
                         <img src={article.urlToImage} alt={article.title} className="article-image"/>
                         <h2>{article.title}</h2>
                         <p>{article.description}</p>
-                        <Link to={`/article/${encodeURIComponent(article.url)}`} className="read_more">Read More</Link>
+                        <Link to={`/article/${encodeURIComponent(article.url)}`} className="read-more">Read More</Link>
                     </div>
                 ))}
             </div>

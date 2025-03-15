@@ -33,7 +33,7 @@ const Home = () => {
 
     return (
         <div className="p-4">
-            <h1 className="text-2xl font-bold">Latest News</h1>
+            <h1 className="home-title">Latest News</h1>
             
             {/* Search Bar */}
             {/* <SearchBar onSearch={handleSearch} /> */}

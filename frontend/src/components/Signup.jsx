@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
     const [username, setUsername] = useState('');
@@ -51,6 +52,11 @@ const Signup = () => {
                 </div>
                 <button type="submit" disabled={loading}>{loading ? 'Signing up...' : 'Sign Up'}</button>
             </form>
+            <div className='auth-login'>
+                <p>Already have an account? 
+                    <Link to="/login" className="login-link">Login</Link>
+                </p>
+            </div>
         </div>
     );
 };

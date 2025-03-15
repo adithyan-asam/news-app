@@ -53,3 +53,18 @@
 .read-more:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
+
+.dark-mode .article-card {
+    background-color: #222;
+    border: 1px solid #444;
+    color: white;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .article-card h2 {
+    color: white;
+}
+
+.dark-mode .article-card p {
+    color: #ccc;
+}

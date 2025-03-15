@@ -13,13 +13,13 @@ const Navbar = () => {
             <Link to="/category/technology" className="nav-link">Technology</Link>
             <Link to="/category/sports" className="nav-link">Sports</Link>
             <Link to="/category/entertainment" className="nav-link">Entertainment</Link>
-            <Link to="/search" className="nav-link">Search</Link>
+            
             
             {/* Authentication Links */}
             {!user ? (
                 <>
-                    <Link to="/login" className="nav-link">Login</Link>
-                    <Link to="/signup" className="nav-link">Sign Up</Link>
+                        <Link to="/login" className="login-btn">Login</Link>
+                    {/* <Link to="/signup" className="nav-link">Sign Up</Link> */}
                 </>
             ) : (
                 <>
@@ -27,6 +27,7 @@ const Navbar = () => {
                     <button onClick={logout} className="logout-btn">Logout</button>
                 </>
             )}
+            <Link to="/search" className="nav-link">Search</Link>
         </nav>
     );
 };

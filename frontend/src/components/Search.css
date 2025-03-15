@@ -90,7 +90,7 @@
     margin: 10px 0;
 }
 
-.read_more {
+.read-more {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 16px;
@@ -101,6 +101,6 @@
     transition: background-color 0.3s ease;
 }
 
-.read_more:hover {
+.read-more:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }

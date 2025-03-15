@@ -1,10 +1,10 @@
 .navbar {
     background-color: #000000; /* Dark background */
-    padding: 10px;
+    padding: 15px;
     display: flex;
     justify-content: center; /* Align items to the right */
     align-items: center;
-    gap: 20px; /* Space between links */
+    gap: 30px; /* Space between links */
     padding-right: 20px; /* Add some right padding for spacing */
 }
 
@@ -36,7 +36,28 @@
     left: 0;
 }
 
+.login-btn{
+    position: absolute;
+    right: 20px;
+    font-size: 18px;
+    display: inline-block;
+    background-color: white;
+    padding: 6px 15px;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover{
+    background-color: #007bff;
+    color: white;
+}
+
 .logout-btn {
+    position: absolute;
+    right: 20px;
     background-color: #ffffff;
     color: #000000;
     border: none;
