@@ -8,7 +8,7 @@
     margin-bottom: 20px;
     display: flex;
     gap: 15px;
-    transition: box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .bookmark-card:hover{
@@ -48,3 +48,20 @@
     box-shadow: none;
 }
 
+/* dark-mode*/
+
+.dark-mode .bookmark-card{
+    background-color: #222;
+    border: 1px solid #444;
+    color: white;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .bookmark-card:hover{
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.dark-mode .delete-button:hover{
+    background-color: #FF9800;
+    color: black;
+}

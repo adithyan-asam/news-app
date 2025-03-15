@@ -53,7 +53,7 @@ const Login = () => {
                         {showPassword ? <FaEyeSlash /> : <FaEye />}
                     </span>
                 </div>
-                <button type="submit" disabled={loading}>{loading ? 'Logging in...' : 'Login'}</button>
+                <button className='butt-on' type="submit" disabled={loading}>{loading ? 'Logging in...' : 'Login'}</button>
             </form>
             <div className='auth-signup'>
                 <p>Don&apos;t have an account? 

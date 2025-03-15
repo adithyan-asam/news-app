@@ -65,3 +65,28 @@
 .bookmark-button:hover {
     background-color: #ff4500;
 }
+
+/* dark-mode */
+
+.dark-mode .loader-container{
+    background-color: #222;
+}
+
+.dark-mode .article-content{
+    background-color: #222;
+    border: 1px solid #444;
+    color: white;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .article-content h1{
+    color: white;
+}
+
+.dark-mode .article-content .content-snippet{
+    color: #a8a8a8;
+}
+
+.dark-mode .article-content .read-full-link{
+    color: #FF9800;
+}

@@ -69,3 +69,33 @@
     display: flex;
     align-items: center;
 }
+
+/* dark-mode */
+
+.dark-mode .auth-container{
+    background-color: #222;
+    border: 1px solid #444;
+    color: white;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .butt-on{
+    background-color: #FF9800;
+    color: black;
+}
+
+.dark-mode .butt-on:hover{
+    background-color: #e68900;
+}
+
+.dark-mode h2{
+    color: white;
+}
+
+.dark-mode .signup-link{
+    color: #FF9800;
+}
+
+.dark-mode .login-link{
+    color: #FF9800;
+}

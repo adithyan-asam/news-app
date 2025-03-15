@@ -50,7 +50,7 @@ const Signup = () => {
                         {showPassword ? <FaEyeSlash /> : <FaEye />}
                     </span>
                 </div>
-                <button type="submit" disabled={loading}>{loading ? 'Signing up...' : 'Sign Up'}</button>
+                <button className='butt-on' type="submit" disabled={loading}>{loading ? 'Signing up...' : 'Sign Up'}</button>
             </form>
             <div className='auth-login'>
                 <p>Already have an account? 
