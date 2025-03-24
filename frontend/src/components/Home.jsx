@@ -6,14 +6,12 @@ import './Home.css';
 import ArticleCard from './ArticleCard'; // Importing ArticleCard component
 
 const Home = () => {
-    const [, setArticles] = useState([]);
-    const [filteredArticles, setFilteredArticles] = useState([]);
+    const [articles , setArticles] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:5000/api/news')
             .then(res => {
                 setArticles(res.data.articles);
-                setFilteredArticles(res.data.articles); // Initially, all articles are displayed
             })
             .catch(err => console.log(err));
     }, []);
@@ -29,18 +27,13 @@ const Home = () => {
     //         );
     //         setFilteredArticles(filtered);
     //     }
-    // };
+    // };   
 
     return (
-        <div className="p-4">
+        <div className="home-page">     
             <h1 className="home-title">Latest News</h1>
-            
-            {/* Search Bar */}
-            {/* <SearchBar onSearch={handleSearch} /> */}
-
             <div className="articles-grid">
-                {filteredArticles.map(article => (
-                    // Using ArticleCard for each article
+                {articles.map(article => (
                     <ArticleCard key={article.url} article={article} />
                 ))}
             </div>

@@ -21,7 +21,7 @@ const DarkModeToggle = () => {
             <input 
                 type="checkbox" 
                 checked={isDarkMode} 
-                onChange={() => setIsDarkMode(!isDarkMode)} 
+                onChange={() => setIsDarkMode(!isDarkMode)}
             />
             <span className="slider"></span>
         </label>

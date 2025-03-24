@@ -1,3 +1,7 @@
+.home-page{
+    padding: 20px;
+}
+
 .articles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -9,3 +13,9 @@
     font-size: 36px;
     margin-bottom: 20px;
 }
+
+/* @media (max-width: 600px) {
+    .articles-grid {
+      grid-template-columns: 1fr; Single column on mobile
+    }
+} */

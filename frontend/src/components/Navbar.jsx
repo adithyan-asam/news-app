@@ -14,7 +14,6 @@ const Navbar = () => {
             <Link to="/category/sports" className="nav-link">Sports</Link>
             <Link to="/category/entertainment" className="nav-link">Entertainment</Link>
             
-            
             {/* Authentication Links */}
             {!user ? (
                 <>
