@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.post('/add', auth, async (req, res) => {
     const { article_url, title, urlToImage, content } = req.body;
-
     const userId = req.user.userId;
     try {
         await pool.query(

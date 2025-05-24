@@ -77,10 +77,20 @@ const ArticleDetail = () => {
       alert(res.data.message);
       setIsBookmarked(true); // Disable button after bookmarking
     } catch (err) {
-      if (err.response && err.response.status === 400) {
-        alert('Already bookmarked!');
+      if (err.response) {
+        // Server responded with error status
+        if (err.response.status === 401) {
+          navigate('/login');
+        } else if (err.response.status === 400) {
+          alert('Already bookmarked!');
+          setIsBookmarked(true); // Sync UI with actual state
+        }
+      } else if (err.request) {
+        // Request was made but no response
+        alert('Network error - please try again');
       } else {
-        alert('Failed to bookmark');
+        // Other errors
+        alert('Bookmarking failed');
       }
     }
   };
