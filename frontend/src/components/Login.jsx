@@ -20,7 +20,7 @@ const Login = () => {
         setLoading(true);
         setError('');
         try {
-            const res = await axios.post('http://localhost:5000/api/users/login', { username, password });
+            const res = await axios.post('https://news-app-ia5i.onrender.com/api/users/login', { username, password });
             login(res.data.token);
             navigate('/');
         } catch {

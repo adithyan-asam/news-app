@@ -9,7 +9,7 @@ const Category = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/news/category/${category}`)
+        axios.get(`https://news-app-ia5i.onrender.com/api/news/category/${category}`)
             .then(res => setArticles(res.data.articles))
             .catch(err => console.log(err));
     }, [category]);

@@ -7,7 +7,7 @@ const Bookmarks = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        axios.get('http://localhost:5000/api/bookmarks', {
+        axios.get('https://news-app-ia5i.onrender.com/api/bookmarks', {
             headers: { 'x-auth-token': token }
         }).then(res => {
             console.log(res.data); // Log bookmarks data
@@ -30,7 +30,7 @@ const Bookmarks = () => {
         }
 
         try {
-            await axios.delete(`http://localhost:5000/api/bookmarks/delete/${encodeURIComponent(articleUrl)}`, {
+            await axios.delete(`https://news-app-ia5i.onrender.com/api/bookmarks/delete/${encodeURIComponent(articleUrl)}`, {
                 headers: { 'x-auth-token': token }
             });
 

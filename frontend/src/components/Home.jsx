@@ -9,7 +9,7 @@ const Home = () => {
     const [articles , setArticles] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/news')
+        axios.get('https://news-app-ia5i.onrender.com/api/news')
             .then(res => {
                 setArticles(res.data.articles);
             })

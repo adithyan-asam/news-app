@@ -23,7 +23,7 @@ const ArticleDetail = () => {
     }
 
     axios
-      .get(`http://localhost:5000/api/news/detail?url=${encodeURIComponent(url)}`, {
+      .get(`https://news-app-ia5i.onrender.com/api/news/detail?url=${encodeURIComponent(url)}`, {
         headers: { 'x-auth-token': token },
         timeout: 10000,
       })
@@ -47,7 +47,7 @@ const ArticleDetail = () => {
 
   const checkIfBookmarked = async (articleUrl, token) => {
     try {
-      const res = await axios.get('http://localhost:5000/api/bookmarks', {
+      const res = await axios.get('https://news-app-ia5i.onrender.com/api/bookmarks', {
         headers: { 'x-auth-token': token },
       });
 
@@ -69,7 +69,7 @@ const ArticleDetail = () => {
     const { title, urlToImage, content } = article;
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/bookmarks/add',
+        'https://news-app-ia5i.onrender.com/api/bookmarks/add',
         { article_url: url, title, urlToImage, content },
         { headers: { 'x-auth-token': token } }
       );

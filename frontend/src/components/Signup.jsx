@@ -18,7 +18,7 @@ const Signup = () => {
         setLoading(true);
         setError('');
         try {
-            await axios.post('http://localhost:5000/api/users/register', { username, password });
+            await axios.post('https://news-app-ia5i.onrender.com/api/users/register', { username, password });
             navigate('/login');
         } catch {
             setError('Registration failed. Try again.');

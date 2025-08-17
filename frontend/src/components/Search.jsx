@@ -14,7 +14,7 @@ const Search = () => {
         if (query) {
             setLoading(true);
             const delayDebounceFn = setTimeout(() => {
-                axios.get(`http://localhost:5000/api/news/search?q=${query}`)
+                axios.get(`https://news-app-ia5i.onrender.com/api/news/search?q=${query}`)
                     .then(res => {
                         setArticles(res.data.articles);
                         setError(null);

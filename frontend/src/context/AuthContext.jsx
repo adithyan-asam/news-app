@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            axios.get('http://localhost:5000/api/users/me', {
+            axios.get('https://news-app-ia5i.onrender.com/api/users/me', {
                 headers: { 'x-auth-token': token }
             })
             .then(res => setUser(res.data))
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = (token) => {
         localStorage.setItem('token', token);
-        axios.get('http://localhost:5000/api/users/me', {
+        axios.get('https://news-app-ia5i.onrender.com/api/users/me', {
             headers: { 'x-auth-token': token }
         }).then(res => setUser(res.data));
     };
