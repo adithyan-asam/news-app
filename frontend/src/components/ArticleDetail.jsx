@@ -1,8 +1,9 @@
 // src/components/ArticleDetail.js
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { toast } from "react-toastify";
 import './ArticleDetail.css';
 
 const ArticleDetail = () => {
@@ -11,13 +12,17 @@ const ArticleDetail = () => {
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isBookmarked, setIsBookmarked] = useState(false); // Track bookmark status
+  const toastShown = useRef(false);
 
   console.log('URL from useParams:', url);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token){
-      alert('You need to be logged in to view this news.');
+      if (!toastShown.current) {
+        toast.info("You need to be logged in to view this news.");
+        toastShown.current = true;
+      }
       navigate('/login');
       return;
     }
@@ -35,11 +40,13 @@ const ArticleDetail = () => {
       })
       .catch((err) => {
         console.log('Error fetching news:', err);
-        alert('Failed to fetch news');
-        if (err.code === 'ETIMEDOUT') {
-          alert('Request timed out. Please try again later.');
-        } else {
-          alert('Failed to fetch article details.');
+        if (!toastShown.current) {
+          if (err.code === "ETIMEDOUT") {
+            toast.error("Request timed out. Please try again later.");
+          } else {
+            toast.error("Failed to fetch article details.");
+          }
+          toastShown.current = true;
         }
         setLoading(false);
     });
@@ -62,7 +69,7 @@ const ArticleDetail = () => {
     if (isBookmarked) return; // Prevents function execution if already bookmarked
     const token = localStorage.getItem('token');
     if (!token) {
-      alert('Login to bookmark');
+      toast.info('Login to bookmark');
       return;
     }
 
@@ -82,15 +89,15 @@ const ArticleDetail = () => {
         if (err.response.status === 401) {
           navigate('/login');
         } else if (err.response.status === 400) {
-          alert('Already bookmarked!');
+          toast.info('Already bookmarked!');
           setIsBookmarked(true); // Sync UI with actual state
         }
       } else if (err.request) {
         // Request was made but no response
-        alert('Network error - please try again');
+        toast.error('Network error - please try again');
       } else {
         // Other errors
-        alert('Bookmarking failed');
+        toast.error('Bookmarking failed');
       }
     }
   };

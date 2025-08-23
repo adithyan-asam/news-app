@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from "react-toastify";
 import './Bookmarks.css';
 
 const Bookmarks = () => {
@@ -38,7 +39,7 @@ const Bookmarks = () => {
             setBookmarks(bookmarks.filter(b => b.article_url !== articleUrl));
         } catch (error) { // Renamed from err to error
             console.error("Error deleting bookmark:", error);
-            alert('Failed to delete bookmark');
+            toast.error('Failed to delete bookmark');
         }
     };
 
