@@ -81,7 +81,7 @@ const ArticleDetail = () => {
         { headers: { 'x-auth-token': token } }
       );
 
-      alert(res.data.message);
+      toast.success(res.data.message);
       setIsBookmarked(true); // Disable button after bookmarking
     } catch (err) {
       if (err.response) {
